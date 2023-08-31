@@ -1,0 +1,38 @@
+@import "../../styles/colors.scss";
+
+
+.defaultInput {
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    display: flex;
+    background-color: $neutral-color;
+}
+
+.defaultPhoneWrapper {
+    display: flex;
+    gap: 0px;
+    padding-left: 1px;
+}
+
+.defaultPhoneWrapper .defaultCountryCode {
+    // background-color: $tertiary-color;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    color: white;
+    padding: 12px;
+
+}
+
+.defaultPhoneWrapper .defaultInput {
+    border-radius: 8px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    padding: 8px 12px;
+
+
+}
+
+input:focus {
+    outline: none;
+}
