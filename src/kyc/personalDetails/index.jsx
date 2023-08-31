@@ -13,6 +13,8 @@
   import Button from "@mui/material/Button";
   import NomineeAdded from "../../components/nomineeAdded";
   import Nominee from "../../components/nominee";
+import RButton from "../../components/rButton";
+import "./styles.scss"
   const nomineeDataItem = {
     name: "",
     dateOfBirth: "",
@@ -182,7 +184,7 @@
     };
     return (
       <>
-        <div className="flex flex-col p-4">
+        <div className="flex flex-col p-4 jjj">
           <Gender handleChange={handleChange} />
           <hr/>
           <MaritalStatus handleChange={handleChange} formData={formData} />
@@ -221,20 +223,31 @@
           <NomineeAdded handleChange={handleNomineeRadio} />
           {renderNominee()}
           {nomineeData?.nomineeAdded && (
-            <Button
+           <div className="">
+             <Button
               size={"smalls"}
               variant="outlined"
               onClick={handleAddNominee}
               disabled={nomineeData.listOfNomineeMembersInfo.length >= 3}
+              className="hhh"
             >
               Add More
             </Button>
+           </div>
           )}
           <br />
           {error && <span className="text-rose-600 mb-3">{error}</span>}
-          <Button className="mt-4" onClick={handleSubmit} variant="contained">
+          {/* <Button className="mt-4" onClick={handleSubmit} variant="contained">
             Proceed
-          </Button>
+          </Button> */}
+          <div className="flex flex-col items-center justify-center">
+          <RButton
+          handleButtonClick={handleSubmit}
+          buttonName="Proceed"
+          bgColor="bg-skyBlue"
+          externalClassName="w-1/5"
+          />
+          </div>
         </div>
         <hr />
       </>
