@@ -56,6 +56,7 @@ function Login(props) {
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           alt="Sample image"
         />
+
       </div>
       <Container component="main" maxWidth="xs">
         <Box
