@@ -55,6 +55,7 @@ function Segment(props) {
   };
   return (
     <>
+    <div className="">
       <p className="text-2xl font-bold mb-3">
         Segment{error && <span className="text-rose-600 ml-4">{error}</span>}
       </p>
@@ -92,7 +93,7 @@ function Segment(props) {
           label="CDS"
         />
       </FormGroup>
-      <div className="bg-slate-300 h-0.5 w-100 my-3"></div>
+      <div className="bg-grey h-0.5 w-100 my-3"></div>
       <div className="flex">
       <FormGroup classes={"flex justify-start items-baseline"} row>
         <p className="font-bold p-0 mr-8 self-center text-xs opacity-80">MCX:</p>
@@ -108,7 +109,7 @@ function Segment(props) {
         />
       </FormGroup>
         `<button 
-            className="bg-sky-600 ms-12 font-bold text-white rounded-lg px-2"
+            className="bg-skyBlue ms-12 font-bold text-white rounded-lg px-2"
             onClick={() => setBrokerage(!brokerage)}
             >
               View Brokerage
@@ -125,19 +126,19 @@ function Segment(props) {
           )}
         </Stack>
       </div> */}
-      <div className="bg-slate-300 h-0.5 my-3 w-100"></div>
+      <div className="bg-grey h-0.5 my-3 w-100"></div>
       <div className="">
       <div className="flex">
           <sup>
             <img src={Star} alt={"star"} className="w-[15px]" />
           </sup>
-          <p className="font-bold text-sky-600 text-2xl">Trading Flat at Rs.</p>
+          <p className="font-bold text-blue text-2xl">Trading Flat at Rs.</p>
         </div>
         <div className="text-xs mt-6 font-bold opacity-80">Monthly Charges</div>
         {showIncomeProof && (<div >
-          <div className="bg-slate-300 h-0.5 my-3 w-100"></div>
+          <div className="bg-grey h-0.5 my-3 w-100"></div>
         <div className="flex justify-between flex-wrap">
-          <p className="font-bold">Your Income Proof</p>
+          <p className="font-bold opacity-80">Your Income Proof</p>
           <div className="flex bg-blueNeutral rounded-full p-1 px-2">
             <button
               name="incomeproof"
@@ -151,7 +152,6 @@ function Segment(props) {
               type="file"
               onChange={handleIncomeChange}
               ref={incomeproofInputField}
-            //   style={{ display: "none" }}
               className="hidden"
             />
           </div>
@@ -173,12 +173,12 @@ function Segment(props) {
             name="incomePassword"
             value={data.incomePassword}
             onChange={handleChange}
-            className="bg-blueNeutral rounded-lg px-2"
+            className="rounded-lg px-2 bg-blueNeutral"
           />
         </div>
         </div>
         )}
-        <div className="bg-slate-300 h-0.5 my-3 w-100"></div>
+        <div className="bg-grey h-0.5 my-3 w-100"></div>
         <div className="w-[40%]">
           <div className="flex justify-between">
             <p className="font-bold mb-4 text-sm opacity-80">Amount Payable</p>
@@ -194,15 +194,16 @@ function Segment(props) {
           </div>
           </div>
           <div className="w-40%">
-          <div className="bg-slate-300 h-0.5 my-3"></div>
+          <div className="bg-grey h-0.5 my-3"></div>
           <div className="flex justify-center">
-            <div className="bg-orange-500 px-4 py-1 rounded-lg font-bold text-center">
+            <div className="bg-secondary px-4 py-1 rounded-lg font-bold text-center">
               <button className="opacity-80" onClick={handleProceed}>
                 Proceed
               </button>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
