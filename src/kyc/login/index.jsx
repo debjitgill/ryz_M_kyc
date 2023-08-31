@@ -6,6 +6,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import useApi from "../../hooks/useApi";
+import RImg from "../../components/rImg"
+import RButton from "../../components/rButton"
+import Star from "../../assets/kyc/star.svg"
 function Login(props) {
   const [email, setEmail] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -49,13 +52,51 @@ function Login(props) {
     setOtp("");
   };
   return (
-    <div className="flex">
+    <div className="flex bg-skyBlue rounded-lg">
       <Loader open={loading} />
-      <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-        <img
+      <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12 ">
+        {/* <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           alt="Sample image"
-        />
+        /> */}
+        <div className="main-des-container rounded-lg bg-skyBlue">
+            <div>
+              <div className="p-5">
+                <p className="text-2xl text-white font-medium p-8">
+                  Open your GillBroking <br /> in just 5 minutes
+                </p>
+                <div className="flex gap-5">
+                  <div>
+                    <input type="checkbox" />
+                  </div>
+                  <div>
+                    <p className=" text-white text-sm">
+                      I agree to receive communication from Gill Broking Pvt.
+                      Ltd. through SMS, Whatsapp, Email, and Calls.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-3 mt-5">
+                  <div>
+                    <RImg
+                      src={Star}
+                      alt={""}
+                      width="18px"
+                      height="18px"
+                      innerImgWidth="18px"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm ">
+                      NOTE: GILL BROKING PRIVATE LIMITED IS DOING CLIENT BASED
+                      TRADING AND PRO ACCOUNT TRADING.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
       </div>
       <Container component="main" maxWidth="xs">
@@ -80,6 +121,7 @@ function Login(props) {
               <>
                 <div>
                   <TextField
+                  className="bg-white rounded-2 xl"
                     error={Boolean(errorMsg)}
                     margin="normal"
                     required
@@ -108,6 +150,7 @@ function Login(props) {
               <>
                 <div>
                   <TextField
+                  className="bg-white rounded-lg"
                     margin="normal"
                     required
                     fullWidth
@@ -121,19 +164,26 @@ function Login(props) {
                     onChange={handleOtpChange}
                   />
                 </div>
-                <div className="flex justify-between">
-                  <Button
-                    className="ml-6"
+                <div className="flex justify-between gap-5">
+                  {/* <Button
+                    className="ml-6 "
                     color="error"
                     onClick={handleCancelOTP}
-                    variant="outlined"
+                    // variant="outlined"
                   >
                     Cancel
-                  </Button>
+                  </Button> */}
+                  <RButton 
+                  buttonName="Cancel" 
+                  bgColor="bg-red" 
+                  externalClassName="text-white rounded-lg"
+                  onClick={handleCancelOTP}
+                  />
 
-                  <Button onClick={handleOtpSubmit} variant="contained">
-                    Submit OTP
-                  </Button>
+                  <RButton 
+                  onClick={handleOtpSubmit}  
+                  buttonName="Submit OTP"
+                  externalClassName="text-black rounded-lg"/>
                 </div>
               </>
             ) : null}
