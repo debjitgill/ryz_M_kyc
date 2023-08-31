@@ -1,0 +1,29 @@
+// Primary Colors
+$primary-color: #013350;
+$primary-color-light: lighten($primary-color, 10%);
+$primary-color-dark: darken($primary-color, 10%);
+
+// Secondary Colors
+$secondary-color: #fa8820;
+$secondary-color-light: lighten($secondary-color, 10%);
+$secondary-color-dark: darken($secondary-color, 10%);
+
+// Tertiary Colors
+$tertiary-color: #00a89c;
+$tertiary-color-light: lighten($tertiary-color, 10%);
+$tertiary-color-dark: darken($tertiary-color, 10%);
+
+
+// White Colors
+$white-color: #FFFFFF;
+$black-color: #000000;
+$neutral-color: #efefef;
+
+// Error Colors
+$error-color: #B00020;
+
+//blue colors
+$dark-blue:#005286;
+$blue:#0071bc;
+$light-blue:#0299f0;
+$blue-neutral:#7ccbf8;
