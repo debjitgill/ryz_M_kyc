@@ -6,9 +6,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import useApi from "../../hooks/useApi";
-import RImg from "../../components/rImg"
-import RButton from "../../components/rButton"
-import Star from "../../assets/kyc/star.svg"
+import RImg from "../../components/rImg";
+import RButton from "../../components/rButton";
+import Star from "../../assets/kyc/star.svg";
+import "./styles.scss"
+
 function Login(props) {
   const [email, setEmail] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -52,120 +54,117 @@ function Login(props) {
     setOtp("");
   };
   return (
-    <div className="flex bg-skyBlue rounded-lg">
+    <div className="flex bg-skyBlue rounded-lg  border border-primary ">
       <Loader open={loading} />
-      <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12 ">
+      <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
         {/* <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           alt="Sample image"
         /> */}
-        <div className="main-des-container rounded-lg bg-skyBlue">
+        {/* <div className="main-des-container "> */}
+        {/* <div> */}
+        <div className="p-5 ">
+          <p className="text-2xl text-white font-medium p-8">
+            Open your GillBroking <br /> in just 5 minutes
+          </p>
+          <div className="flex gap-5">
             <div>
-              <div className="p-5">
-                <p className="text-2xl text-white font-medium p-8">
-                  Open your GillBroking <br /> in just 5 minutes
-                </p>
-                <div className="flex gap-5">
-                  <div>
-                    <input type="checkbox" />
-                  </div>
-                  <div>
-                    <p className=" text-white text-sm">
-                      I agree to receive communication from Gill Broking Pvt.
-                      Ltd. through SMS, Whatsapp, Email, and Calls.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 mt-5">
-                  <div>
-                    <RImg
-                      src={Star}
-                      alt={""}
-                      width="18px"
-                      height="18px"
-                      innerImgWidth="18px"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-white text-sm ">
-                      NOTE: GILL BROKING PRIVATE LIMITED IS DOING CLIENT BASED
-                      TRADING AND PRO ACCOUNT TRADING.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <input type="checkbox" />
+            </div>
+            <div>
+              <p className=" text-white text-sm">
+                I agree to receive communication from Gill Broking Pvt. Ltd.
+                through SMS, Whatsapp, Email, and Calls.
+              </p>
             </div>
           </div>
 
+          <div className="flex gap-3 mt-5">
+            <div>
+              <RImg
+                src={Star}
+                alt={""}
+                width="18px"
+                height="18px"
+                innerImgWidth="18px"
+              />
+            </div>
+            <div>
+              <p className="text-white text-sm ">
+                NOTE: GILL BROKING PRIVATE LIMITED IS DOING CLIENT BASED TRADING
+                AND PRO ACCOUNT TRADING.
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* </div> */}
+        {/* </div> */}
       </div>
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Typography component="h1" variant="h5">
-            Email
-          </Typography>
+      <div className="bg-white w-1/2 ">
+        <Container component="main" maxWidth="xs" className="">
           <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ mt: 1 }}
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
           >
-            {!valid && (
-              <>
-                <div>
-                  <TextField
-                  className="bg-white rounded-2 xl"
-                    error={Boolean(errorMsg)}
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Enter Email"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                    value={email}
-                    onChange={handleChange}
-                    helperText={errorMsg}
-                  />
-                </div>
-                <Button
-                  onClick={handleSubmit}
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Send OTP
-                </Button>
-              </>
-            )}
-            {valid ? (
-              <>
-                <div>
-                  <TextField
-                  className="bg-white rounded-lg"
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="OTP"
-                    label="Enter OTP"
-                    type="text"
-                    id="otp"
-                    error={Boolean(errorMsg)}
-                    value={otp}
-                    helperText={errorMsg}
-                    onChange={handleOtpChange}
-                  />
-                </div>
-                <div className="flex justify-between gap-5">
-                  {/* <Button
+            <Typography component="h1" variant="h5">
+              Email
+            </Typography>
+            <Box
+              component="form"
+              onSubmit={handleSubmit}
+              noValidate
+              sx={{ mt: 1 }}
+            >
+              {!valid && (
+                <>
+                  <div>
+                    <TextField
+                      className="bg-white rounded-lg"
+                      error={Boolean(errorMsg)}
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Enter Email"
+                      name="email"
+                      autoComplete="email"
+                      autoFocus
+                      value={email}
+                      onChange={handleChange}
+                      helperText={errorMsg}
+                    />
+                  </div>
+
+                  <RButton
+                    handleButtonClick={handleSubmit}
+                    buttonName="Submit OTP"
+                    />
+                </>
+              )}
+              {valid ? (
+                <>
+                  <div>
+                    <TextField
+                      className="bg-white rounded-lg"
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="OTP"
+                      label="Enter OTP"
+                      type="text"
+                      id="otp"
+                      error={Boolean(errorMsg)}
+                      value={otp}
+                      helperText={errorMsg}
+                      onChange={handleOtpChange}
+                    />
+                  </div>
+                  <div className="flex justify-between gap-5">
+                    {/* <Button
                     className="ml-6 "
                     color="error"
                     onClick={handleCancelOTP}
@@ -173,23 +172,25 @@ function Login(props) {
                   >
                     Cancel
                   </Button> */}
-                  <RButton 
-                  buttonName="Cancel" 
-                  bgColor="bg-red" 
-                  externalClassName="text-white rounded-lg"
-                  onClick={handleCancelOTP}
-                  />
+                    <RButton
+                      buttonName="Cancel"
+                      bgColor="bg-red"
+                      externalClassName="text-white rounded-lg"
+                      onClick={handleCancelOTP}
+                    />
 
-                  <RButton 
-                  onClick={handleOtpSubmit}  
-                  buttonName="Submit OTP"
-                  externalClassName="text-black rounded-lg"/>
-                </div>
-              </>
-            ) : null}
+                    <RButton
+                      onClick={handleOtpSubmit}
+                      buttonName="Submit OTP"
+                      externalClassName="text-black rounded-lg"
+                    />
+                  </div>
+                </>
+              ) : null}
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </div>
     </div>
   );
 }

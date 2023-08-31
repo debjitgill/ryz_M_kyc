@@ -6,6 +6,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import useApi from "../../hooks/useApi";
+import RImg from "../../components/rImg";
+import Star from "../../assets/kyc/star.svg";
 
 function MobileLogin(props) {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -54,14 +56,49 @@ function MobileLogin(props) {
     setOtp("");
   };
   return (
-    <div className="flex">
+    <div className="flex bg-skyBlue rounded-lg  border border-primary ">
       <Loader open={loading} />
       <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-        <img
+        {/* <img
           src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           alt="Sample image"
-        />
+        /> */}
+        <div className="p-5 ">
+          <p className="text-2xl text-white font-medium p-8">
+            Open your GillBroking <br /> in just 5 minutes
+          </p>
+          <div className="flex gap-5">
+            <div>
+              <input type="checkbox" />
+            </div>
+            <div>
+              <p className=" text-white text-sm">
+                I agree to receive communication from Gill Broking Pvt. Ltd.
+                through SMS, Whatsapp, Email, and Calls.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex gap-3 mt-5">
+            <div>
+              <RImg
+                src={Star}
+                alt={""}
+                width="18px"
+                height="18px"
+                innerImgWidth="18px"
+              />
+            </div>
+            <div>
+              <p className="text-white text-sm ">
+                NOTE: GILL BROKING PRIVATE LIMITED IS DOING CLIENT BASED TRADING
+                AND PRO ACCOUNT TRADING.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+      <div className="bg-white w-1/2 ">
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -71,9 +108,9 @@ function MobileLogin(props) {
             alignItems: "center",
           }}
         >
-          <Typography component="h1" variant="h5">
+          <p className="text-2xl font-bold">
             Login
-          </Typography>
+          </p>
           <Box
             component="form"
             onSubmit={handleSubmit}
@@ -96,6 +133,7 @@ function MobileLogin(props) {
                     value={phoneNumber}
                     onChange={handleChange}
                     helperText={errorMsg}
+                    className=""
                   />
                 </div>
                 <Button
@@ -142,6 +180,7 @@ function MobileLogin(props) {
           </Box>
         </Box>
       </Container>
+      </div>
     </div>
   );
 }
