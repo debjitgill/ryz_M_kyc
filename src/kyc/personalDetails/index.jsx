@@ -184,17 +184,26 @@
       <>
         <div className="flex flex-col p-4">
           <Gender handleChange={handleChange} />
+          <hr/>
           <MaritalStatus handleChange={handleChange} formData={formData} />
+          <hr/>
           <QualificationDetails handleChange={handleChange} formData={formData} />
+          <hr/>
           <Occupation handleChange={handleChange} />
+          <hr/>
           <TaxResidency handleChange={handleChange} />
+          <hr/>
           <Nationality handleChange={handleChange} />
+          <hr/>
           <PoliticallyExposed handleChange={handleChange} />
+          <hr/>
           <StockAccused handleChange={handleChange} formData={formData} />
+          <hr/>
           <div className=" flex flex-row mt-3 space-x-52">
             <FatherName handleChange={handleChange} />
             <MotherName handleChange={handleChange} />
           </div>
+          <hr/>
           <div className="mb-5">
             <AnnualSalary
               name={"netWorth"}
@@ -202,9 +211,12 @@
               handleChange={handleChange}
             />
           </div>
+          <hr/>
           <div className="mb-5">
             <AnnualSalary name={"annualSalary"} handleChange={handleChange} />
           </div>
+          <hr/>
+     
 
           <NomineeAdded handleChange={handleNomineeRadio} />
           {renderNominee()}
