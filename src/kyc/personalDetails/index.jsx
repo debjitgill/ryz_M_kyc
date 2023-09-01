@@ -164,13 +164,19 @@ import "./styles.scss"
             <span className="font-bold text-slate-700 underline underline-offset-4 mb-2">
               Nominee {idx + 1}
             </span>
-            <Button
+            {/* <Button
               variant="outlined"
               color="error"
               onClick={() => handleRemoveNominee(idx)}
+              className="bg-primary"
             >
-              x
-            </Button>
+              X
+            </Button> */}
+            <RButton 
+            externalClassName="bg-peimary"
+            buttonName="X"
+            handleButtonClick={() => handleRemoveNominee(idx)}
+            />
           </div>
           <Nominee
             key={`nomineeItem_${idx}`}
@@ -187,25 +193,28 @@ import "./styles.scss"
         <div className="flex flex-col p-4 jjj">
           <Gender handleChange={handleChange} />
           <hr/>
+          <br/>
           <MaritalStatus handleChange={handleChange} formData={formData} />
-          <hr/>
+          <hr/><br/>
           <QualificationDetails handleChange={handleChange} formData={formData} />
-          <hr/>
+          <hr/><br/>
           <Occupation handleChange={handleChange} />
-          <hr/>
+          <hr/><br/>
           <TaxResidency handleChange={handleChange} />
-          <hr/>
+          <hr/><br/>
           <Nationality handleChange={handleChange} />
-          <hr/>
+          <hr/><br/>
           <PoliticallyExposed handleChange={handleChange} />
-          <hr/>
+          <hr/><br/>
           <StockAccused handleChange={handleChange} formData={formData} />
           <hr/>
-          <div className=" flex flex-row mt-3 space-x-52">
+          <div className="parent-container flex flex-row mt-3 space-x-52">
             <FatherName handleChange={handleChange} />
             <MotherName handleChange={handleChange} />
+         
           </div>
-          <hr/>
+          <br/>
+          <hr/><br/>
           <div className="mb-5">
             <AnnualSalary
               name={"netWorth"}
@@ -213,23 +222,23 @@ import "./styles.scss"
               handleChange={handleChange}
             />
           </div>
-          <hr/>
+          <hr/><br/>
           <div className="mb-5">
             <AnnualSalary name={"annualSalary"} handleChange={handleChange} />
           </div>
-          <hr/>
+          <hr/><br/>
      
 
           <NomineeAdded handleChange={handleNomineeRadio} />
           {renderNominee()}
           {nomineeData?.nomineeAdded && (
-           <div className="">
+           <div className="flex flex-col items-center justify-center">
              <Button
               size={"smalls"}
               variant="outlined"
               onClick={handleAddNominee}
               disabled={nomineeData.listOfNomineeMembersInfo.length >= 3}
-              className="hhh"
+              className="add-more-button"
             >
               Add More
             </Button>
