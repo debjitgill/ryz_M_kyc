@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import RButton from "../../components/rButton";
 function UploadPanProof(props) {
   const [formData, setFormData] = useState({
     panCardImage: "",
@@ -54,8 +55,8 @@ function UploadPanProof(props) {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center bg-slate-400 p-8">
-      <h1 className="p-4 mb-4">Upload Bank Details</h1>
+    <div className="flex flex-col justify-center items-center bg-slate-400 p-8 bg-neutral">
+      <h1 className="p-4 mb-4 font-bold">Upload Bank Details</h1>
       <span className="text-rose-800">
         Pan card is not linked with DIGI LOCKER so please upload pancard related
         information manually
@@ -72,6 +73,7 @@ function UploadPanProof(props) {
             value={formData.name ?? ""}
           />
         </div>
+        <hr className="my-5"/>
         <div className="flex flex-col">
           <span className="font-semibold text-slate-700">
             {"Date of Birth"}
@@ -84,6 +86,7 @@ function UploadPanProof(props) {
             />
           </LocalizationProvider>
         </div>
+        <hr className="my-5"/>
         <div className="flex flex-col gap-2">
           <span className="font-semibold text-slate-700">Pan Number</span>
           <TextField
@@ -96,6 +99,7 @@ function UploadPanProof(props) {
           />
         </div>
       </div>
+      <hr className="my-5"/>
       <div className="flex flex-col gap-1 mb-4">
         <div className="flex flex-col justify-center items-center">
           <span className="mb-4 font-bold">
@@ -121,12 +125,16 @@ function UploadPanProof(props) {
             </>
           )}
         </div>
-        <div className="self-end">
-          {error && <span className="text-rose-800">{error}</span>}
-          <Button variant="contained" color="success" onClick={handleSubmit}>
-            Submit
-          </Button>
+        <div className="self-end flex justify-center w-full">
+          {error && <span className="text-red">{error}</span>}
         </div>
+          <div className="flex justify-center w-full">
+            <RButton
+              handleButtonClick={handleSubmit}
+              buttonName="Submit"
+              bgColor="bg-skyBlue"
+            />
+          </div>
       </div>
     </div>
   );
