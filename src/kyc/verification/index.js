@@ -38,7 +38,7 @@ function Verification(props) {
                             <p>Gender: {panCardDataDto?.gender ?? ""} </p>
                         </div>
                         <div className="fff m-2">
-                            <img src={QR} alt="" width="100px" className="blur-[1px]" />
+                            <img src={QR} alt="" width="100px" className="blur-[2px]" />
                         </div>
                     </div>
                     <div className="aadhar-no text-center my-3 font-bold text-2xl">
@@ -70,7 +70,7 @@ function Verification(props) {
                             <p className="pan-no">PAN CARD NUMBER</p>
                             <p className="font-bold "> {panCardDataDto?.panNumber ?? ""}</p>
                         </div>
-                        <img src={QR} alt="QR" width="100px" className="pan-qr" />
+                        <img src={QR} alt="QR" width="100px" className="pan-qr blur-[2px]" />
                     </div>
                     <div className="pan-footer flex">
                         <div className="pan-info ml-4 w-[50%]">
