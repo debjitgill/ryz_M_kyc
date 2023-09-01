@@ -16,11 +16,13 @@ function App() {
   const [isAdminLogin, setIsAdminLogin] = useState(getAdminKey());
   useEffect(() => {}, []);
   return (
-    <div className="App p-8 global-bg">
+
+    <div className="App p-8 ">
+
       <header className="App-header flex flex-col justify-center items-center">
         <div className="flex gap-8 mb-4">
           <img width={"100px"} src={Logo} alt="RYZ" />{" "}
-          {!isAdminLogin && (
+          {/* {!isAdminLogin && (
             <Button
               color="success"
               variant="contained"
@@ -28,7 +30,7 @@ function App() {
             >
               ADMIN LOGIN
             </Button>
-          )}
+          )} */}
         </div>
         <span className="font-bold">RYZ KYC</span>
       </header>
