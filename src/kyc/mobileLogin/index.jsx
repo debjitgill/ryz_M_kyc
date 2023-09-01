@@ -98,7 +98,7 @@ function MobileLogin(props) {
           </div>
         </div>
       </div>
-      <div className="bg-white w-1/2 ">
+      <div className=" bg-white w-1/2 ">
       <Container component="main" maxWidth="xs">
         <Box
           sx={{

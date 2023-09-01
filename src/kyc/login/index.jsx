@@ -9,7 +9,7 @@ import useApi from "../../hooks/useApi";
 import RImg from "../../components/rImg";
 import RButton from "../../components/rButton";
 import Star from "../../assets/kyc/star.svg";
-import "./styles.scss"
+import "./styles.scss";
 
 function Login(props) {
   const [email, setEmail] = useState("");
@@ -54,7 +54,7 @@ function Login(props) {
     setOtp("");
   };
   return (
-    <div className="flex bg-skyBlue rounded-lg  border border-primary ">
+    <div className="login-container flex bg-skyBlue rounded-lg  border border-primary ">
       <Loader open={loading} />
       <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
         {/* <img
@@ -100,7 +100,7 @@ function Login(props) {
         {/* </div> */}
         {/* </div> */}
       </div>
-      <div className="bg-white w-1/2 ">
+      <div className="email-container bg-white w-1/2 ">
         <Container component="main" maxWidth="xs" className="">
           <Box
             sx={{
@@ -138,11 +138,13 @@ function Login(props) {
                       helperText={errorMsg}
                     />
                   </div>
+                  <div className="flex justify-center p-3">
 
                   <RButton
                     handleButtonClick={handleSubmit}
-                    buttonName="Submit OTP"
+                    buttonName="Send OTP"
                     />
+                    </div>
                 </>
               )}
               {valid ? (
@@ -179,11 +181,12 @@ function Login(props) {
                       onClick={handleCancelOTP}
                     />
 
-                    <RButton
-                      onClick={handleOtpSubmit}
-                      buttonName="Submit OTP"
-                      externalClassName="text-black rounded-lg"
-                    />
+                    <div className="">
+                      <RButton
+                        onClick={handleOtpSubmit}
+                        buttonName="Submit OTP"
+                      />
+                    </div>
                   </div>
                 </>
               ) : null}
