@@ -208,7 +208,7 @@ import "./styles.scss"
           <hr/><br/>
           <StockAccused handleChange={handleChange} formData={formData} />
           <hr/>
-          <div className="parent-container flex flex-row mt-3 space-x-52">
+          <div className="parent-container flex justify-between mt-3 ">
             <FatherName handleChange={handleChange} />
             <MotherName handleChange={handleChange} />
          
@@ -254,7 +254,7 @@ import "./styles.scss"
           handleButtonClick={handleSubmit}
           buttonName="Proceed"
           bgColor="bg-skyBlue"
-          externalClassName="w-1/5"
+          externalClassName="w-auto"
           />
           </div>
         </div>
