@@ -5,6 +5,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
+import RButton from "../../components/rButton"
 
 const NOMINEE_DATA = [
   { key: "name", value: "Full Name" },
@@ -109,6 +110,7 @@ export default function Nominee(props) {
             <img className="w-full" src={data.proofOfAddress} alt={`${data?.name} address proof`} />
           </div>
           <Button
+            className="bg-blue"
             variant="outlined"
             color="error"
             onClick={() => props.handleChange("proofOfAddress", "")}
