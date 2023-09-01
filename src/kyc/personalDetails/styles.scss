@@ -1,0 +1,13 @@
+// @import "../../styles/colors.scss";
+.add-more-button{
+    // border: 1px solid red;
+    background-color: red;
+}
+
+@media screen and (max-width: 480px) {
+    .parent-container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+  }

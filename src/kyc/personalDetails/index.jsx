@@ -13,6 +13,8 @@
   import Button from "@mui/material/Button";
   import NomineeAdded from "../../components/nomineeAdded";
   import Nominee from "../../components/nominee";
+import RButton from "../../components/rButton";
+import "./styles.scss"
   const nomineeDataItem = {
     name: "",
     dateOfBirth: "",
@@ -162,13 +164,19 @@
             <span className="font-bold text-slate-700 underline underline-offset-4 mb-2">
               Nominee {idx + 1}
             </span>
-            <Button
+            {/* <Button
               variant="outlined"
               color="error"
               onClick={() => handleRemoveNominee(idx)}
+              className="bg-primary"
             >
-              x
-            </Button>
+              X
+            </Button> */}
+            <RButton 
+            externalClassName="bg-peimary"
+            buttonName="X"
+            handleButtonClick={() => handleRemoveNominee(idx)}
+            />
           </div>
           <Nominee
             key={`nomineeItem_${idx}`}
@@ -182,19 +190,31 @@
     };
     return (
       <>
-        <div className="flex flex-col p-4">
+        <div className="flex flex-col p-4 jjj">
           <Gender handleChange={handleChange} />
+          <hr/>
+          <br/>
           <MaritalStatus handleChange={handleChange} formData={formData} />
+          <hr/><br/>
           <QualificationDetails handleChange={handleChange} formData={formData} />
+          <hr/><br/>
           <Occupation handleChange={handleChange} />
+          <hr/><br/>
           <TaxResidency handleChange={handleChange} />
+          <hr/><br/>
           <Nationality handleChange={handleChange} />
+          <hr/><br/>
           <PoliticallyExposed handleChange={handleChange} />
+          <hr/><br/>
           <StockAccused handleChange={handleChange} formData={formData} />
-          <div className=" flex flex-row mt-3 space-x-52">
+          <hr/>
+          <div className="parent-container flex flex-row mt-3 space-x-52">
             <FatherName handleChange={handleChange} />
             <MotherName handleChange={handleChange} />
+         
           </div>
+          <br/>
+          <hr/><br/>
           <div className="mb-5">
             <AnnualSalary
               name={"netWorth"}
@@ -202,27 +222,41 @@
               handleChange={handleChange}
             />
           </div>
+          <hr/><br/>
           <div className="mb-5">
             <AnnualSalary name={"annualSalary"} handleChange={handleChange} />
           </div>
+          <hr/><br/>
+     
 
           <NomineeAdded handleChange={handleNomineeRadio} />
           {renderNominee()}
           {nomineeData?.nomineeAdded && (
-            <Button
+           <div className="flex flex-col items-center justify-center">
+             <Button
               size={"smalls"}
               variant="outlined"
               onClick={handleAddNominee}
               disabled={nomineeData.listOfNomineeMembersInfo.length >= 3}
+              className="add-more-button"
             >
               Add More
             </Button>
+           </div>
           )}
           <br />
           {error && <span className="text-rose-600 mb-3">{error}</span>}
-          <Button className="mt-4" onClick={handleSubmit} variant="contained">
+          {/* <Button className="mt-4" onClick={handleSubmit} variant="contained">
             Proceed
-          </Button>
+          </Button> */}
+          <div className="flex flex-col items-center justify-center">
+          <RButton
+          handleButtonClick={handleSubmit}
+          buttonName="Proceed"
+          bgColor="bg-skyBlue"
+          externalClassName="w-1/5"
+          />
+          </div>
         </div>
         <hr />
       </>
