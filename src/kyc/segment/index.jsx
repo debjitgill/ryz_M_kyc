@@ -57,7 +57,7 @@ function Segment(props) {
     <>
     <div className="">
       <p className="text-2xl font-bold mb-3">
-        Segment{error && <span className="text-rose-600 ml-4">{error}</span>}
+        Segment{error && <span className="text-red ml-4">{error}</span>}
       </p>
 
       <FormGroup classes={"flex justify-start items-baseline"} row>

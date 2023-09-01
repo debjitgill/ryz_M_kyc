@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import useApi from "../../hooks/useApi";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Loader from "../../components/loader";
+import RButton from "../../components/rButton";
 function BankAccount(props) {
   const { loading, error } = useApi();
   const [bankAcNo, setbankAcNo] = useState("");
@@ -44,7 +44,7 @@ function BankAccount(props) {
 
   const handleFinalSubmit = (event) => {
     event.preventDefault();
-    if (bankAcNo.trim().length <= 14 && bankAcNo.trim().length >= 4) {
+    if (bankAcNo.trim().length <= 17 && bankAcNo.trim().length >= 4) {
       setErrorMsg("");
       if (ifsc.trim().length < 4) {
         setErrorIfscCode("Invalid IFSC");
@@ -59,21 +59,21 @@ function BankAccount(props) {
   return (
     <>
       <Loader open={loading} />
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: 8,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+      <Container component="main">
+        <Typography
+          component="h1"
+          variant="h5"
+          sx={{ fontWeight: "bold", textAlign: "center" }}
         >
-          <Typography component="h1" variant="h5">
-            Bank Account No
-          </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }}>
-            <>
-              <div>
+          Enter your Bank Details
+        </Typography>
+        <Box component="form" noValidate sx={{ mt: 1 }}>
+          <>
+            <div className="flex justify-around flex-wrap">
+              <div className="detailsInput">
+                <label className="font-bold flex justify-center">
+                  Bank Account Number
+                </label>
                 <TextField
                   error={Boolean(errorMsg)}
                   margin="normal"
@@ -90,10 +90,10 @@ function BankAccount(props) {
                   helperText={errorMsg}
                 />
               </div>
-            </>
-
-            <>
               <div>
+                <label className="font-bold flex justify-center">
+                  Bank IFSC Code
+                </label>
                 <TextField
                   margin="normal"
                   required
@@ -108,12 +108,19 @@ function BankAccount(props) {
                   onChange={handleIfscChange}
                 />
               </div>
+            </div>
+          </>
 
-              <Button onClick={handleFinalSubmit} variant="contained">
-                Validate
-              </Button>
-            </>
-          </Box>
+          <>
+            <div className="flex justify-center mt-4">
+              <RButton
+                externalClassName="mt-2 bg-skyBlue"
+                buttonName="Proceed"
+                handleButtonClick={handleFinalSubmit}
+                type={"submit"}
+              />
+            </div>
+          </>
         </Box>
       </Container>
     </>
