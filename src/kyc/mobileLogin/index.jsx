@@ -59,10 +59,6 @@ function MobileLogin(props) {
     <div className="flex bg-skyBlue rounded-lg  border border-primary ">
       <Loader open={loading} />
       <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-        {/* <img
-          src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          alt="Sample image"
-        /> */}
         <div className="p-5 ">
           <p className="text-2xl text-white font-medium p-8">
             Open your GillBroking <br /> in just 5 minutes
