@@ -1,0 +1,45 @@
+.mob-button {
+    margin-bottom: 12px;
+}
+
+@media screen and (max-width: 480px) {
+    .login-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .email-container {
+        width: 100%;
+    }
+
+
+}
+
+@media screen and (max-width:1024px) {
+    .emailMain-box {
+        width: 50%;
+    }
+
+    .text-container {
+        padding: 4px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .emailMain-box {
+        width: 100%;
+    }
+
+    .text-container {
+        padding: 4px;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .email-container {
+        width: 100%;
+    }
+}
