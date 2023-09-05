@@ -174,10 +174,13 @@ function Login(props) {
                     />
 
                     <div className="">
-                      <RButton
+                      {/* <RButton
                         onClick={handleOtpSubmit}
                         buttonName="Submit OTP"
-                      />
+                      /> */}
+                      <Button onClick={handleOtpSubmit} variant="contained">
+                      Submit OTP
+                    </Button>
                     </div>
                   </div>
                 </>
