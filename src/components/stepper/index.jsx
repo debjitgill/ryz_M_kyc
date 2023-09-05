@@ -22,7 +22,7 @@ export default function HorizontalLinearAlternativeLabelStepper(props) {
     <Box sx={{ width: "100%" }}>
       <Stepper activeStep={getActiveStep()} alternativeLabel>
         {KYC_STEPS.map((label) => (
-          <Step key={label.key}>
+          <Step  key={label.key}>
             <StepLabel>{label.value}</StepLabel>
           </Step>
         ))}

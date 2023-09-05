@@ -54,7 +54,7 @@ function Login(props) {
     setOtp("")
   }
   return (
-    <div className="login-container flex bg-skyBlue rounded-lg  border border-primary ">
+    <div className="login-container flex bg-skyBlue rounded-lg border border-primary ">
       <Loader open={loading} />
       <div className="emailMain-box shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
         <div className="p-5 text-container">
