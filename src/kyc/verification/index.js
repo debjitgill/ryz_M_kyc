@@ -21,16 +21,16 @@ function Verification(props) {
           <div className="flex">
             <div className="aadhar-image m-2">
               <img
-                src={Dummy}
+                src={`data:img/jpeg;base64, ${
+                  aadharResponseData?.aadharProfilePhotoBase64 ?? ""
+                }`}
                 alt="Aadhar card of user"
                 className="border"
                 width="100px"
                 height="100px"
               />
             </div>
-            {/* src={`data:img/jpeg;base64, ${
-                aadharResponseData?.aadharProfilePhotoBase64 ?? ""
-              }`} */}
+            
             <div className="aadhar-info w-[60%] font-bold p-2">
               <p>Name: {aadharResponseData?.name ?? ""}</p>
               <p>DOB: {panCardDataDto?.dob ?? ""}</p>
@@ -41,7 +41,7 @@ function Verification(props) {
             </div>
           </div>
           <div className="aadhar-no text-center my-3 font-bold text-2xl">
-            XXXX XXXX XXXX
+          {aadharResponseData?.maskAadharNumber ?? ""}
             <hr className="text-red" />
           </div>
           <div className="text-center font-bold text-xl">
