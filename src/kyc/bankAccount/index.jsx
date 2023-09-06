@@ -5,7 +5,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Loader from "../../components/loader";
-import RButton from "../../components/rButton";
+import Button from "@mui/material/Button";
+// import RButton from "../../components/rButton";
 function BankAccount(props) {
   const { loading, error } = useApi();
   const [bankAcNo, setbankAcNo] = useState("");
@@ -113,12 +114,9 @@ function BankAccount(props) {
 
           <>
             <div className="flex justify-center mt-4">
-              <RButton
-                externalClassName="mt-2 bg-skyBlue"
-                buttonName="Proceed"
-                handleButtonClick={handleFinalSubmit}
-                type={"submit"}
-              />
+            <Button onClick={handleFinalSubmit} variant="contained">
+                Validate
+              </Button>
             </div>
           </>
         </Box>
