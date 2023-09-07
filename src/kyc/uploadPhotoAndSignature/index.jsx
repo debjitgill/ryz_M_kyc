@@ -13,8 +13,10 @@ function UploadPhotoAndSignature(props) {
   const [formData, setFormData] = useState({
     image: "",
     signature: "",
+    digiSign:"",
     geolocation: { latitude: "", longitude: "" },
   });
+  // const [capturingImage, setCapturingImage] = useState(false);
   const onChange = (e) => {
     const files = e.target.files;
     const file = files[0];
@@ -58,8 +60,18 @@ function UploadPhotoAndSignature(props) {
   };
 
   const handleCaptureImage = (val) => {
-    setFormData((prev) => ({ ...prev, image: val }));
+    if (val && typeof val === 'string' && val.startsWith('data:image/')) {
+      // Valid image, update the form data and reset capturingImage
+      setFormData((prev) => ({ ...prev, image: val }));
+      // setCapturingImage(false);
+    } else {
+      // Invalid image or camera issue, clear the image in the form data
+      setFormData((prev) => ({ ...prev, image: '' }));
+      // setCapturingImage(false);
+      alert("Please capture a valid image or ensure your camera is working.");
+    }
   };
+  
 
   console.log("====0000=====", formData);
   const handleClear = () => {
@@ -68,8 +80,11 @@ function UploadPhotoAndSignature(props) {
   };
   const handleGenerate = () => {
     setUrl(digiSign.getTrimmedCanvas().toDataURL("image/png"));
+    setFormData((prev) => ({
+      ...prev,
+      digiSign: digiSign.getTrimmedCanvas().toDataURL("image/png"), 
+    }));
   };
-
   console.log(digiSign);
   console.log(url);
   return (
@@ -135,7 +150,7 @@ function UploadPhotoAndSignature(props) {
         <div>
           <SignatureCanvas
             canvasProps={{
-              width: 500,
+              width: 300,
               height: 200,
               className: "sigCanvas border-2 border-grey rounded-lg",
             }}
@@ -198,7 +213,7 @@ function UploadPhotoAndSignature(props) {
         <Modal open={imageCapture} onClose={() => setImageCapture(false)}>
           <CameraCapture
             handleCaptureImage={handleCaptureImage}
-            imageValue={formData?.image}
+            imageValue={formData.image}
             onSave={() => setImageCapture(false)}
           />
         </Modal>
