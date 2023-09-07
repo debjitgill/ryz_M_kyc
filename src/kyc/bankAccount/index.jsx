@@ -13,6 +13,7 @@ function BankAccount(props) {
   const [errorMsg, setErrorMsg] = useState("");
   const [errorIfscCode, setErrorIfscCode] = useState("");
   const [ifsc, setIfsc] = useState("");
+  const [bankproof, setBankproof] = useState(false);
   const handleIFSC = async () => {
     try {
       setErrorIfscCode("");
@@ -23,7 +24,7 @@ function BankAccount(props) {
         // Replace "bankAcNo" with the actual variable containing the account number.
         (await data) &&
           props.handlePostRequest(
-            { ifsc: ifsc, account_number: bankAcNo },
+            { ifsc: ifsc, account_number: bankAcNo , bankproof: bankproof },
             "details/bank-details"
           );
       } else {
@@ -34,8 +35,12 @@ function BankAccount(props) {
       // Handle any errors that occur during the API call (e.g., show an error message).
     }
   };
-
+  // const bankproofInputField = useRef(null);
+  const handleBankChange = (e) => {
+    setBankproof(e.target.files[0].name);
+  };
   const handleChange = (event) => {
+    event.preventDefault()  
     setbankAcNo(event.target.value);
   };
 
@@ -44,7 +49,6 @@ function BankAccount(props) {
   };
 
   const handleFinalSubmit = (event) => {
-    event.preventDefault();
     if (bankAcNo.trim().length <= 17 && bankAcNo.trim().length >= 4) {
       setErrorMsg("");
       if (ifsc.trim().length < 4) {
@@ -111,11 +115,24 @@ function BankAccount(props) {
               </div>
             </div>
           </>
-
+          <hr className="mt-8 " />
+        <div className="flex flex-wrap justify-between">
+          <p className="mt-6 opacity-75 font-bold">Your Bank Proof</p>
+          <div className="flex bg-blueNeutral mt-6 rounded-full p-1 px-2  w-[250px]">
+             <input
+              type="file"
+              onChange={handleBankChange}
+              className=""
+              // style={{ display: "none" }}
+              placeholder="hello"
+            />
+          </div>
+        </div>
+        {bankproof}
           <>
             <div className="flex justify-center mt-4">
             <Button onClick={handleFinalSubmit} variant="contained">
-                Validate
+                Submit
               </Button>
             </div>
           </>
