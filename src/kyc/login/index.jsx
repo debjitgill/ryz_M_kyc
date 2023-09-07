@@ -63,7 +63,7 @@ function Login(props) {
           </p>
           <div className="flex gap-5">
             <div>
-              <input type="checkbox" />
+              <input type="checkbox" checked/>
             </div>
             <div>
               <p className=" text-white text-sm">
@@ -90,8 +90,6 @@ function Login(props) {
             </div>
           </div>
         </div>
-        {/* </div> */}
-        {/* </div> */}
       </div>
       <div className="email-container bg-white w-1/2 ">
         <Container component="main" maxWidth="xs" className="email-box">
@@ -158,20 +156,15 @@ function Login(props) {
                     />
                   </div>
                   <div className="flex justify-between gap-5">
-                    {/* <Button
+                    <Button
                     className="ml-6 "
                     color="error"
                     onClick={handleCancelOTP}
                     // variant="outlined"
                   >
                     Cancel
-                  </Button> */}
-                    <RButton
-                      buttonName="Cancel"
-                      bgColor="bg-red"
-                      externalClassName="text-white rounded-lg"
-                      onClick={handleCancelOTP}
-                    />
+                  </Button>
+                 
 
                     <div className="">
                       
