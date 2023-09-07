@@ -62,11 +62,11 @@ function MobileLogin(props) {
       <div className="emailMain-box shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
         <div className="p-5 text-container">
           <p className="text-2xl text-white font-medium p-8">
-            Open your GillBroking <br /> in just 5 minutes
+            Open your Gill Broking Account <br /> in just 5 minutes
           </p>
           <div className="flex gap-5">
             <div>
-              <input type="checkbox" />
+              <input type="checkbox" checked/>
             </div>
             <div>
               <p className=" text-white text-sm">
