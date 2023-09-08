@@ -13,17 +13,16 @@ $tertiary-color: #00a89c;
 $tertiary-color-light: lighten($tertiary-color, 10%);
 $tertiary-color-dark: darken($tertiary-color, 10%);
 
-
 // White Colors
-$white-color: #FFFFFF;
+$white-color: #ffffff;
 $black-color: #000000;
 $neutral-color: #efefef;
 
 // Error Colors
-$error-color: #B00020;
+$error-color: #b00020;
 
 //blue colors
-$dark-blue:#005286;
-$blue:#0071bc;
-$light-blue:#0299f0;
-$blue-neutral:#7ccbf8;
+$dark-blue: #005286;
+$blue: #0071bc;
+$light-blue: #0299f0;
+$blue-neutral: #7ccbf8;

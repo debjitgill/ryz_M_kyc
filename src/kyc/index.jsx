@@ -71,8 +71,8 @@ function KYC() {
   };
   return (
     <main className="container mx-auto flex-1 flex flex-col items-center justify-center px-2">
-      <Loader open={loading} />
-      <Stepper activeStepKey={getKycStatus()} />
+      {loading && <Loader open={loading} />}
+      {getKycStatus() && <Stepper activeStepKey={getKycStatus()} />}
       <section className="mt-4 bg-white px-6 py-8 rounded shadow-lg text-black w-full">
         {renderKycComponent()}
       </section>
