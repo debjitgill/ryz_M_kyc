@@ -73,7 +73,7 @@ function MobileLogin(props) {
             </div>
           </div>
 
-          <div className="flex gap-3 mt-5">
+          <div className="flex gap-3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             mt-5">
             <div>
               <RImg
                 src={Star}
