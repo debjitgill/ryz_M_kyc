@@ -66,7 +66,7 @@ function DigiLocker(props) {
           onClick={handleDigiLocker}
           variant="outlined"
         >
-          Proceed to Digi Locker
+          Proceed to Digi Lockers
         </Button>
       </div>
     </div>
