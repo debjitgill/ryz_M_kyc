@@ -1,58 +1,58 @@
-import React, { useState } from "react"
-import Button from "@mui/material/Button"
-import TextField from "@mui/material/TextField"
-import Loader from "../../components/loader"
-import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
-import Container from "@mui/material/Container"
-import useApi from "../../hooks/useApi"
-import RImg from "../../components/rImg"
-import RButton from "../../components/rButton"
-import Star from "../../assets/kyc/star.svg"
-import "./styles.scss"
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Loader from "../../components/loader";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import useApi from "../../hooks/useApi";
+import RImg from "../../components/rImg";
+import RButton from "../../components/rButton";
+import Star from "../../assets/kyc/star.svg";
+import "./styles.scss";
 
 function Login(props) {
-  const [email, setEmail] = useState("")
-  const [errorMsg, setErrorMsg] = useState("")
-  const [valid, setValid] = useState(false)
-  const [otp, setOtp] = useState("")
-  const { loading, error, postData } = useApi()
+  const [email, setEmail] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [valid, setValid] = useState(false);
+  const [otp, setOtp] = useState("");
+  const { loading, error, postData } = useApi();
 
-  const handleChange = event => {
-    setEmail(event.target.value)
-  }
+  const handleChange = (event) => {
+    setEmail(event.target.value);
+  };
 
-  const handleOtpChange = event => {
-    setOtp(event.target.value)
-  }
+  const handleOtpChange = (event) => {
+    setOtp(event.target.value);
+  };
 
-  const handleSubmit = event => {
-    event.preventDefault()
+  const handleSubmit = (event) => {
+    event.preventDefault();
     // Perform validation
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    const isValid = regex.test(email)
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = regex.test(email);
     if (isValid) {
-      postData(`otp/send?type=EMAIL`, { value: email })
-      setErrorMsg("")
+      postData(`otp/send?type=EMAIL`, { value: email });
+      setErrorMsg("");
     } else {
-      setErrorMsg("Invalid Email")
+      setErrorMsg("Invalid Email");
     }
-    setValid(isValid)
-  }
+    setValid(isValid);
+  };
 
-  const handleOtpSubmit = event => {
-    event.preventDefault()
+  const handleOtpSubmit = (event) => {
+    event.preventDefault();
     if (otp.trim().length === 4) {
-      props.handlePostRequest({ email: email, otp: otp }, `otp/verify-email`)
-      setErrorMsg("")
+      props.handlePostRequest({ email: email, otp: otp }, `otp/verify-email`);
+      setErrorMsg("");
     } else {
-      setErrorMsg("Invalid OTP")
+      setErrorMsg("Invalid OTP");
     }
-  }
+  };
   const handleCancelOTP = () => {
-    setValid(false)
-    setOtp("")
-  }
+    setValid(false);
+    setOtp("");
+  };
   return (
     <div className="login-container flex bg-skyBlue rounded-lg  border border-primary ">
       <Loader open={loading} />
@@ -63,7 +63,7 @@ function Login(props) {
           </p>
           <div className="flex gap-5">
             <div>
-              <input type="checkbox" checked/>
+              <input type="checkbox" checked />
             </div>
             <div>
               <p className=" text-white text-sm">
@@ -157,20 +157,18 @@ function Login(props) {
                   </div>
                   <div className="flex justify-between gap-5">
                     <Button
-                    className="ml-6 "
-                    color="error"
-                    onClick={handleCancelOTP}
-                    // variant="outlined"
-                  >
-                    Cancel
-                  </Button>
-                 
+                      className="ml-6 "
+                      color="error"
+                      onClick={handleCancelOTP}
+                      // variant="outlined"
+                    >
+                      Cancel
+                    </Button>
 
                     <div className="">
-                      
                       <Button onClick={handleOtpSubmit} variant="contained">
-                      Submit OTP
-                    </Button>
+                        Submit OTP
+                      </Button>
                     </div>
                   </div>
                 </>
@@ -179,9 +177,8 @@ function Login(props) {
           </Box>
         </Container>
       </div>
-        </div>
-        
-  )
+    </div>
+  );
 }
 
-export { Login }
+export { Login };

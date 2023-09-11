@@ -1,72 +1,69 @@
-import React, { useState } from "react"
-import Button from "@mui/material/Button"
-import TextField from "@mui/material/TextField"
-import Loader from "../../components/loader"
-import Box from "@mui/material/Box"
-import Typography from "@mui/material/Typography"
-import Container from "@mui/material/Container"
-import useApi from "../../hooks/useApi"
-import RImg from "../../components/rImg"
-import Star from "../../assets/kyc/star.svg"
-import "./styles.scss"
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Loader from "../../components/loader";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import useApi from "../../hooks/useApi";
+import RImg from "../../components/rImg";
+import Star from "../../assets/kyc/star.svg";
+import "./styles.scss";
 
 function MobileLogin(props) {
-  const [phoneNumber, setPhoneNumber] = useState("")
-  const [errorMsg, setErrorMsg] = useState("")
-  const [valid, setValid] = useState(false)
-  const [otp, setOtp] = useState("")
-  const { loading, error, postData } = useApi()
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [valid, setValid] = useState(false);
+  const [otp, setOtp] = useState("");
+  const { loading, error, postData } = useApi();
 
-  const handleChange = event => {
-    setPhoneNumber(event.target.value)
-  }
+  const handleChange = (event) => {
+    setPhoneNumber(event.target.value);
+  };
 
-  const handleOtpChange = event => {
-    setOtp(event.target.value)
-  }
+  const handleOtpChange = (event) => {
+    setOtp(event.target.value);
+  };
 
-  const handleSubmit = event => {
-    event.preventDefault()
+  const handleSubmit = (event) => {
+    event.preventDefault();
     // Perform validation
     const regex =
-      /^\+?([0-9]{1,3})?\s?\(?([0-9]{3})?\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
-    const isValid = regex.test(phoneNumber)
+      /^\+?([0-9]{1,3})?\s?\(?([0-9]{3})?\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    const isValid = regex.test(phoneNumber);
     if (isValid) {
-      postData(`otp/send?type=SMS`, { value: phoneNumber })
-      setErrorMsg("")
+      postData(`otp/send?type=SMS`, { value: phoneNumber });
+      setErrorMsg("");
     } else {
-      setErrorMsg("Invalid Phone Number")
+      setErrorMsg("Invalid Phone Number");
     }
-    setValid(isValid)
-  }
+    setValid(isValid);
+  };
 
-  const handleOtpSubmit = event => {
-    event.preventDefault()
+  const handleOtpSubmit = (event) => {
+    event.preventDefault();
     if (otp.trim().length === 4) {
       props.handlePostRequest(
         { phone: phoneNumber, otp: otp },
         `otp/verify-mobile`
-      )
-      setErrorMsg("")
+      );
+      setErrorMsg("");
     } else {
-      setErrorMsg("Invalid OTP")
+      setErrorMsg("Invalid OTP");
     }
-  }
+  };
   const handleCancelOTP = () => {
-    setValid(false)
-    setOtp("")
-  }
+    setValid(false);
+    setOtp("");
+  };
   return (
     <div className="login-container flex bg-skyBlue rounded-lg  border border-primary ">
       <Loader open={loading} />
       <div className="emailMain-box shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
         <div className="p-5 text-container">
-          <p className="text-2xl text-white font-medium p-8">
-            Open your Gill Broking Account <br /> in just 5 minutes
-          </p>
           <div className="flex gap-5">
             <div>
-              <input type="checkbox" checked/>
+              <input type="checkbox" checked />
             </div>
             <div>
               <p className=" text-white text-sm">
@@ -76,7 +73,7 @@ function MobileLogin(props) {
             </div>
           </div>
 
-          <div className="flex gap-3 mt-5">
+          <div className="flex gap-3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             mt-5">
             <div>
               <RImg
                 src={Star}
@@ -105,7 +102,7 @@ function MobileLogin(props) {
               alignItems: "center",
             }}
           >
-            <p className="text-2xl font-bold">Login</p>
+            <p className="text-2xl font-bold">SignUp</p>
             <Box
               component="form"
               onSubmit={handleSubmit}
@@ -121,7 +118,7 @@ function MobileLogin(props) {
                       required
                       fullWidth
                       id="phoneNumber"
-                      label="Enter Phone Numer"
+                      label="Enter Phone Number"
                       name="phoneNumber"
                       autoComplete="phoneNumber"
                       autoFocus
@@ -177,7 +174,7 @@ function MobileLogin(props) {
         </Container>
       </div>
     </div>
-  )
+  );
 }
 
-export { MobileLogin }
+export { MobileLogin };
