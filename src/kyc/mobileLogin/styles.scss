@@ -1,45 +1,71 @@
 .mob-button {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 @media screen and (max-width: 480px) {
-    .login-container {
-        display: flex;
-        flex-direction: column;
-    }
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
-    .email-container {
-        width: 100%;
-    }
-
-
+  .email-container {
+    width: 100%;
+  }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width: 1024px) {
+  .emailMain-box {
+    width: 50%;
+  }
+
+  .text-container {
+    padding: 4px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .emailMain-box {
+    width: 100%;
+  }
+
+  .text-container {
+    padding: 4px;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .email-container {
+    width: 100%;
+  }
+  @media screen and (max-width: 600px) {
+    .mt-4.bg-white.px-6.py-8.rounded.shadow-lg.text-black.w-full {
+      width: 125%;
+    }
     .emailMain-box {
-        width: 50%;
+      width: 100%;
     }
 
     .text-container {
-        padding: 4px;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .emailMain-box {
-        width: 100%;
-    }
-
-    .text-container {
-        padding: 4px;
+      padding: 4px;
     }
 
     .login-container {
-        display: flex;
-        flex-direction: column-reverse;
+      display: flex;
+      flex-direction: column-reverse;
+      width: -1000px;
+      border-radius: 8px;
     }
 
     .email-container {
-        width: 100%;
+      display: flex;
+      width: 100%;
     }
+  }
+  .phone-input {
+    width: 80%;
+  }
 }

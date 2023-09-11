@@ -33,7 +33,7 @@ function DigiLocker(props) {
     sessionStorage.setItem("state", stateId);
 
     const redirectUri = encodeURIComponent(
-      "https://mat.d1gzhyu1s8x3fj.amplifyapp.com/call"
+      "https://ekyc.ryz.market/ekyc/call"
     );
     const digiLockerUrl = `https://digilocker.meripehchaan.gov.in/public/oauth2/1/authorize?response_type=code&client_id=IAE3E4C164&state=${stateId}&redirect_uri=${redirectUri}&code_challenge=${codeChallenger}&code_challenge_method=S256`;
 
